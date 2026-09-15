@@ -1,9 +1,9 @@
 # Wayfire Studio
 
-A personal desktop built around Wayfire: Pantheon-inspired panel and dock placement,
-with its own visual design, optional tiling, and switchable layouts. Currently a
-VM-first prototype being tuned interactively. No Pantheon settings or applications
-are migrated.
+A personal Wayland desktop shell built around Wayfire and designed as Soltros Shell:
+a transformable workspace with dark navy glass surfaces, cyan accents, adaptive
+sidebars, a floating dock, and workspace-first navigation. It is its own design;
+Pantheon settings and applications are not migrated.
 
 ## Preview in a VM
 
@@ -46,7 +46,8 @@ input grab is toggled with Ctrl+Alt+G if the host intercepts shortcuts.
 | Super+Shift+L | Lock |
 | Print | Select a screenshot region and copy it to the clipboard |
 
-The panel's profile label also opens the profile picker.
+The mode label in the status bar opens the mode picker. Super+Shift+Space opens
+the Soltros command center for quick actions.
 
 The dock's **+** button opens **Add to Dock**. Search for any installed desktop
 application and check it to pin it; uncheck it to remove the pin. Right-clicking a
@@ -60,15 +61,19 @@ button for app-specific actions such as Quit. Click away or press Escape to hide
 the popup. It does not enumerate arbitrary background processes. The same control
 is available on the panel when using Focus mode.
 
-The top panel is always opaque. Papirus Dark is the icon theme for the dock,
+The bottom status bar is always opaque. Papirus Dark is the icon theme for the dock,
 taskbar, popup, application picker, and GTK applications. Starting the session sets
 the user's GNOME interface icon-theme preference to `Papirus-Dark`.
 
-| Profile | Behavior |
+| Mode | Behavior |
 | --- | --- |
-| Classic | Floating by default, spacious gaps, panel and dock |
-| Focus | New app windows tile automatically; panel only |
-| Compact | Floating by default, tighter gaps and smaller dock allocation |
+| Focus | Minimal workspace with floating windows and maximum screen space |
+| Tiled | Automatic tiling for a terminal-first grid workflow |
+| Layout | Floating windows with sidebar-oriented navigation |
+| Nix Shell | Automatic tiling for a command-line-first workflow |
+| Floaters | Freeform floating utility layout |
+| Game | Fullscreen-friendly distraction-free layout |
+| Classic / Compact | Compatibility profiles retained during development |
 
 Changing profiles reloads configuration without logging out. Tiling defaults apply
 to **new** windows; use Super+T for existing windows. Your chosen profile persists.
@@ -102,11 +107,11 @@ The module registers **Wayfire Studio** with your display manager. It supplies
 Wayland portals, XWayland support, Polkit support, and the screen-lock PAM service
 through NixOS's Wayfire module. Your machine supplies its display manager, audio,
 networking, and optional removable-media services. The VM shows those integrations.
-Publication to a dedicated GitHub repository is pending the design preview.
+The flake is published at [soltros/wayfire-studio](https://github.com/soltros/wayfire-studio).
 
 ## Development
 
-- `package.nix`: generated Wayfire and panel profiles, session package
+- `package.nix`: generated Wayfire modes, shell bars, and session package
 - `style.css`, `launcher.css`, `wallpaper.svg`: visual design
 - `scripts/`: session lifecycle, launcher, profile switching, screenshots
 - `modules/nixos.nix`: reusable module and options

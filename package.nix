@@ -64,6 +64,8 @@ let
       command_terminal = "foot";
       binding_launcher = "<super> KEY_SPACE";
       command_launcher = "wayfire-studio-launcher";
+      binding_command_center = "<super> <shift> KEY_SPACE";
+      command_command_center = "wayfire-studio-command-center";
       binding_profile = "<super> KEY_P";
       command_profile = "wayfire-studio-profile";
       binding_files = "<super> <shift> KEY_F";
@@ -125,6 +127,7 @@ let
         "custom/applications"
         "custom/profile"
         "custom/workspaces"
+        "custom/command"
       ];
       "modules-center" = [ "clock" ];
       "modules-right" = [
@@ -146,6 +149,19 @@ let
         exec = "wayfire-studio-profile status";
         interval = 2;
         "on-click" = "wayfire-studio-profile";
+        tooltip = false;
+      };
+      "custom/workspaces" = {
+        format = "󰍹  {}";
+        exec = "wayfire-studio-workspaces status";
+        interval = 2;
+        "on-click" = "wayfire-studio-workspaces view";
+        "on-click-right" = "wayfire-studio-workspaces manage";
+        tooltip = false;
+      };
+      "custom/command" = {
+        format = "󰘳";
+        "on-click" = "wayfire-studio-command-center";
         tooltip = false;
       };
       clock = {
@@ -332,9 +348,12 @@ pkgs.symlinkJoin {
     install -Dm755 ${./scripts/screenshot.sh} "$out/bin/wayfire-studio-screenshot"
     install -Dm755 ${./scripts/launcher.sh} "$out/bin/wayfire-studio-launcher"
     install -Dm755 ${./scripts/workspaces.sh} "$out/bin/wayfire-studio-workspaces"
+    install -Dm755 ${./scripts/command-center.sh} "$out/bin/wayfire-studio-command-center"
     substituteInPlace "$out/bin/wayfire-studio-launcher" --replace-fail '@style@' '${./launcher.css}'
     substituteInPlace "$out/bin/wayfire-studio-profile" \
       --replace-fail '@profiles@' '${configs}' --replace-fail '@bars@' '${barProfiles}' --replace-fail '@default@' '${defaultProfile}'
+    substituteInPlace "$out/bin/wayfire-studio-command-center" \
+      --replace-fail '@style@' '${./launcher.css}'
     substituteInPlace "$out/bin/wayfire-studio-shell" \
       --replace-fail '@style@' '${./style.css}' \
       --replace-fail '@wallpaper@' '${./wallpaper.svg}' \
