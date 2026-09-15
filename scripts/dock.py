@@ -68,7 +68,7 @@ def render(base):
 
     def image(bar, name, icon, action, right_action=None, size=28):
         key = "image#" + name
-        bar[key] = {"path": icon_file(icon), "size": size, "on-click": action}
+        bar[key] = {"path": icon_file(icon), "size": size, "interval": "once", "on-click": action}
         if right_action:
             bar[key]["on-click-right"] = right_action
         return key

@@ -1,4 +1,4 @@
-# Wayfire Studio
+# Soltros Shell
 
 A personal Wayland desktop shell built around Wayfire and designed as Soltros Shell:
 a transformable workspace with dark navy glass surfaces, cyan accents, adaptive
@@ -68,6 +68,12 @@ taskbar, popup, application picker, and GTK applications. Starting the session s
 the user's GNOME interface icon-theme preference to `Papirus-Dark`.
 If a bar fails to start, session diagnostics are written to
 `$XDG_RUNTIME_DIR/wayfire-studio/shell.log`.
+The session starts one Waybar process for all bars on all connected monitors.
+The packaged Waybar disables GTK application uniqueness to prevent an existing
+session-bus application from swallowing startup. Successful startup logs contain
+`Bar configured` for each output; flake evaluation alone does not test rendering.
+Static Papirus images use `interval = "once"`: Waybar 0.15 otherwise reloads
+them every millisecond, starving redraws and leaving an apparently empty desktop.
 
 | Mode | Behavior |
 | --- | --- |

@@ -6,6 +6,12 @@
 }:
 let
   ini = pkgs.formats.ini { };
+  shellWaybar = pkgs.waybar.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace src/client.cpp \
+        --replace-fail 'Gio::APPLICATION_HANDLES_COMMAND_LINE' '(Gio::APPLICATION_HANDLES_COMMAND_LINE | Gio::APPLICATION_NON_UNIQUE)'
+    '';
+  });
   backgroundApps = pkgs.callPackage ./background-apps.nix { };
   compositor = pkgs.wayfire-with-plugins.override { plugins = [ ]; };
   base = {
@@ -289,8 +295,9 @@ let
             if name == "compact" then
               [
                 (builtins.head bars)
+                (builtins.elemAt bars 1)
                 (
-                  (builtins.elemAt bars 1)
+                  (builtins.elemAt bars 2)
                   // {
                     height = 38;
                     width = 360;
@@ -321,7 +328,8 @@ let
     coreutils
     gnugrep
     util-linux
-    waybar
+    shellWaybar
+    glib
     wofi
     foot
     thunar
