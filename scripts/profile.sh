@@ -5,18 +5,18 @@ runtime="${WAYFIRE_STUDIO_RUNTIME:-${XDG_RUNTIME_DIR:?}/wayfire-studio}"
 mkdir -p "$state"
 profile='@default@'
 if [[ -f "$state/profile" ]]; then read -r profile < "$state/profile" || true; fi
-case "$profile" in classic|focus|compact) ;; *) profile='@default@' ;; esac
+case "$profile" in classic|focus|tiled|layout|nix-shell|floaters|game|compact) ;; *) profile='@default@' ;; esac
 case "${1:-menu}" in
   status) printf '%s\n' "$profile"; exit 0 ;;
   init) ;;
-  classic|focus|compact) profile="$1" ;;
+  classic|focus|tiled|layout|nix-shell|floaters|game|compact) profile="$1" ;;
   menu)
-    profile=$(printf 'classic\nfocus\ncompact\n' | wofi --dmenu --prompt 'Desktop profile') || exit 0
+    profile=$(printf 'focus\ntiled\nlayout\nnix-shell\nfloaters\ngame\n' | wofi --dmenu --prompt 'Soltros mode') || exit 0
     [[ -n "$profile" ]] || exit 0
     ;;
   *) echo 'Usage: wayfire-studio-profile [classic|focus|compact|status]' >&2; exit 2 ;;
 esac
-case "$profile" in classic|focus|compact) ;; *) exit 2 ;; esac
+case "$profile" in classic|focus|tiled|layout|nix-shell|floaters|game|compact) ;; *) exit 2 ;; esac
 [[ -d "$runtime" ]] || { echo 'Start Wayfire Studio before changing profiles.' >&2; exit 1; }
 # Replace atomically; Wayfire watches its configuration for changes.
 tmp=$(mktemp "$runtime/config.XXXXXX")

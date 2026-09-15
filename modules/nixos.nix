@@ -17,6 +17,11 @@ in
       type = lib.types.enum [
         "classic"
         "focus"
+        "tiled"
+        "layout"
+        "nix-shell"
+        "floaters"
+        "game"
         "compact"
       ];
       default = "classic";

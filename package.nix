@@ -84,14 +84,16 @@ let
       command_brightness_down = "brightnessctl set 5%-";
     };
   };
-  profiles = lib.genAttrs [ "classic" "focus" "compact" ] (
+  profiles = lib.genAttrs [ "classic" "focus" "tiled" "layout" "nix-shell" "floaters" "game" "compact" ] (
     name:
     ini.generate "wayfire-${name}.ini" (
       lib.recursiveUpdate (lib.recursiveUpdate base (
-        if name == "focus" then
+        if name == "focus" || name == "layout" || name == "floaters" then
           {
-            "simple-tile".tile_by_default = "app_id is not \"wofi\"";
+            "simple-tile".tile_by_default = "none";
           }
+        else if name == "tiled" || name == "nix-shell" then
+          { "simple-tile".tile_by_default = "all"; }
         else if name == "compact" then
           {
             "simple-tile" = {
@@ -233,6 +235,11 @@ let
       [
         "classic"
         "focus"
+        "tiled"
+        "layout"
+        "nix-shell"
+        "floaters"
+        "game"
         "compact"
       ]
   );
@@ -313,7 +320,7 @@ pkgs.symlinkJoin {
     cat > "$out/share/wayland-sessions/wayfire-studio.desktop" <<EOF
     [Desktop Entry]
     Name=Wayfire Studio
-    Comment=Pantheon-inspired desktop with optional tiling
+    Comment=Transformable Soltros Wayfire desktop
     Exec=$out/bin/wayfire-studio
     Type=Application
     DesktopNames=wayfire
@@ -321,7 +328,7 @@ pkgs.symlinkJoin {
   '';
   passthru.providedSessions = [ "wayfire-studio" ];
   meta = {
-    description = "Pantheon-inspired Wayfire desktop with switchable profiles";
+    description = "Transformable Soltros Wayfire desktop with multiple modes";
     license = lib.licenses.mit;
     platforms = [
       "x86_64-linux"
