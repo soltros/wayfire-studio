@@ -4,17 +4,22 @@
   border: none;
   min-height: 0;
 }
-window#waybar { background: #171c2b; color: #e6eaf2; }
-window#waybar.dock { border-radius: 18px; border: 1px solid rgba(138, 180, 248, 0.25); }
+window#waybar { background: #071321; color: #e8f3ff; }
+window#waybar.panel { border-top: 1px solid #1b9cff; }
+window#waybar.sidebar { background: rgba(4, 15, 28, 0.96); border-right: 1px solid #174768; }
+window#waybar.dock { background: rgba(4, 15, 28, 0.96); border-radius: 14px; border: 1px solid #1b9cff; }
+#custom-brand { color: #69c7ff; font-weight: 600; padding: 0 16px; }
+#custom-side-apps, #custom-side-files, #custom-side-browser, #custom-side-code, #custom-side-media, #custom-side-settings { color: #8ed5ff; font-size: 22px; padding: 14px 20px; }
+#custom-side-apps:hover, #custom-side-files:hover, #custom-side-browser:hover, #custom-side-code:hover, #custom-side-media:hover, #custom-side-settings:hover { background: #0d3151; color: #ffffff; }
 #custom-applications, #custom-profile, #clock, #tray, #network, #pulseaudio, #battery, #custom-lock {
   padding: 0 12px;
 }
 #custom-profile { color: #8ab4f8; }
-#custom-launcher, #custom-files, #custom-terminal { font-size: 23px; padding: 0 16px; }
+#custom-launcher, #custom-files, #custom-terminal { font-size: 23px; padding: 0 16px; color: #8ed5ff; }
 #taskbar button { padding: 7px 10px; margin: 4px 2px; border-radius: 12px; color: #e6eaf2; }
-#taskbar button.active { background: rgba(138, 180, 248, 0.22); }
-#taskbar button:hover { background: rgba(138, 180, 248, 0.35); }
+#taskbar button.active { background: #0d4e80; }
+#taskbar button:hover { background: #0d3151; }
 #battery.critical { color: #ff8d9c; }
-tooltip { background: #202638; border-radius: 10px; }
+tooltip { background: #071321; border: 1px solid #1b9cff; border-radius: 8px; }
 #image { padding: 7px 10px; }
 #image.background, #image.add { background: #29364b; border-radius: 9px; margin: 5px 3px; padding: 6px; }

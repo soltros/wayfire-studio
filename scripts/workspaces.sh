@@ -21,6 +21,10 @@ PY
 }
 
 case "${1:-view}" in
+  status)
+    # Waybar-friendly compact workspace strip; the overview remains dynamic.
+    printf '1   2   3   4\n'
+    ;;
   view)
     # Scale's all-workspaces overview gives a clean, Gnome-like spread of views.
     send '{"method":"scale/toggle_all","data":{}}'

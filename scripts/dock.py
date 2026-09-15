@@ -78,7 +78,7 @@ def render(base):
             # Keep the background-app control reachable in Focus mode too.
             key = image(bar, "background", Gio.ThemedIcon.new("view-grid-symbolic"),
                         "wayfire-studio-background-apps toggle", size=18)
-            bar["modules-right"].insert(0, key)
+            bar.setdefault("modules-right", []).insert(0, key)
             continue
         modules = [image(bar, "applications", Gio.ThemedIcon.new("view-app-grid"), "wayfire-studio-launcher")]
         for index, desktop_id in enumerate(pins()):

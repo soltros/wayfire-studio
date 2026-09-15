@@ -117,11 +117,14 @@ let
     {
       name = "panel";
       layer = "top";
-      position = "top";
-      height = 32;
+      position = "bottom";
+      height = 34;
+      margin = "0";
       "modules-left" = [
+        "custom/brand"
         "custom/applications"
         "custom/profile"
+        "custom/workspaces"
       ];
       "modules-center" = [ "clock" ];
       "modules-right" = [
@@ -131,8 +134,12 @@ let
         "custom/lock"
       ];
       "custom/applications" = {
-        format = "Applications";
+        format = "󰣪";
         "on-click" = "wayfire-studio-launcher";
+        tooltip = false;
+      };
+      "custom/brand" = {
+        format = "󰣇  Soltros";
         tooltip = false;
       };
       "custom/profile" = {
@@ -168,6 +175,26 @@ let
         "on-click" = "swaylock -c 171c2b";
         tooltip = false;
       };
+    }
+    {
+      name = "sidebar";
+      layer = "top";
+      position = "left";
+      width = 64;
+      "modules-left" = [
+        "custom/side-apps"
+        "custom/side-files"
+        "custom/side-browser"
+        "custom/side-code"
+        "custom/side-media"
+        "custom/side-settings"
+      ];
+      "custom/side-apps" = { format = "󰀻"; "on-click" = "wayfire-studio-launcher"; tooltip = false; };
+      "custom/side-files" = { format = "󰉋"; "on-click" = "thunar"; tooltip = false; };
+      "custom/side-browser" = { format = "󰖟"; "on-click" = "firefox"; tooltip = false; };
+      "custom/side-code" = { format = "󰨞"; "on-click" = "foot"; tooltip = false; };
+      "custom/side-media" = { format = "󰝚"; "on-click" = "pavucontrol"; tooltip = false; };
+      "custom/side-settings" = { format = "󰒓"; "on-click" = "wayfire-studio-profile"; tooltip = false; };
     }
     {
       name = "dock";

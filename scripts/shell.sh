@@ -16,6 +16,8 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' || true
 wayfire-studio-background-apps & pids+=("$!")
 waybar -b panel -c "${WAYFIRE_STUDIO_RUNTIME:?}/waybar.json" -s '@style@' & pids+=("$!")
 printf '%s\n' "$!" > "$WAYFIRE_STUDIO_RUNTIME/waybar.pid"
+waybar -b sidebar -c "${WAYFIRE_STUDIO_RUNTIME:?}/waybar.json" -s '@style@' & pids+=("$!")
+printf '%s\n' "$!" >> "$WAYFIRE_STUDIO_RUNTIME/waybar.pid"
 waybar -b dock -c "${WAYFIRE_STUDIO_RUNTIME:?}/waybar.json" -s '@style@' & pids+=("$!")
 printf '%s\n' "$!" >> "$WAYFIRE_STUDIO_RUNTIME/waybar.pid"
 swaybg -i '@wallpaper@' -m fill & pids+=("$!")
