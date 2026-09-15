@@ -1,0 +1,20 @@
+* {
+  font-family: Inter, "Font Awesome 6 Free", sans-serif;
+  font-size: 13px;
+  border: none;
+  min-height: 0;
+}
+window#waybar { background: #171c2b; color: #e6eaf2; }
+window#waybar.dock { border-radius: 18px; border: 1px solid rgba(138, 180, 248, 0.25); }
+#custom-applications, #custom-profile, #clock, #tray, #network, #pulseaudio, #battery, #custom-lock {
+  padding: 0 12px;
+}
+#custom-profile { color: #8ab4f8; }
+#custom-launcher, #custom-files, #custom-terminal { font-size: 23px; padding: 0 16px; }
+#taskbar button { padding: 7px 10px; margin: 4px 2px; border-radius: 12px; color: #e6eaf2; }
+#taskbar button.active { background: rgba(138, 180, 248, 0.22); }
+#taskbar button:hover { background: rgba(138, 180, 248, 0.35); }
+#battery.critical { color: #ff8d9c; }
+tooltip { background: #202638; border-radius: 10px; }
+#image { padding: 7px 10px; }
+#image.background, #image.add { background: #29364b; border-radius: 9px; margin: 5px 3px; padding: 6px; }

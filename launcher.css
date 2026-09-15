@@ -1,0 +1,6 @@
+window { background-color: #202638; border: 1px solid #516380; border-radius: 18px; color: #e6eaf2; font-family: Inter; font-size: 15px; }
+#outer-box { padding: 18px; }
+#input { background-color: #171c2b; color: #e6eaf2; padding: 12px; border: none; border-radius: 10px; margin-bottom: 12px; }
+#entry { padding: 10px; border-radius: 8px; }
+#entry:selected { background-color: #354765; }
+#text { margin-left: 10px; }

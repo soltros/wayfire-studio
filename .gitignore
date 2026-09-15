@@ -1,0 +1,4 @@
+/result*
+/*.qcow2
+/vm-state/
+__pycache__/
