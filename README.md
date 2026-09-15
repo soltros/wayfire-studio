@@ -61,14 +61,15 @@ button for app-specific actions such as Quit. Click away or press Escape to hide
 the popup. It does not enumerate arbitrary background processes. The same control
 is available on the panel when using Focus mode.
 
-The bottom status bar is always opaque. It exposes icon-based application launch,
+The top status bar is always opaque. It combines icon-based application launch,
 file manager, CPU, RAM, disk, network, audio,
 media, tray, battery, clock, workspace, and mode controls. Media can be toggled
 with left click and skipped with middle/right click. Papirus Dark is the icon theme for the dock,
 taskbar, popup, application picker, and GTK applications. Starting the session sets
 the user's GNOME interface icon-theme preference to `Papirus-Dark`.
-The main status frame and navigation rail are scoped to the primary output; the
-dock appears on both outputs and shows windows for each display.
+The main status frame is scoped to the primary output; the dock appears on both
+outputs and shows windows for each display. Tray and background-app controls live
+in the dock only.
 If a bar fails to start, session diagnostics are written to
 `$XDG_RUNTIME_DIR/wayfire-studio/shell.log`.
 The session starts one Waybar process for all bars on all connected monitors.

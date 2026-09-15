@@ -126,7 +126,7 @@ let
       name = "panel";
       output = [ "DP-3" ];
       layer = "top";
-      position = "bottom";
+      position = "top";
       height = 34;
       "modules-left" = [
         "custom/applications"
@@ -143,7 +143,6 @@ let
         "network"
         "pulseaudio"
         "custom/media"
-        "tray"
         "battery"
         "custom/lock"
       ];
@@ -230,27 +229,6 @@ let
       };
     }
     {
-      name = "sidebar";
-      output = [ "DP-3" ];
-      layer = "top";
-      position = "left";
-      width = 64;
-      "modules-left" = [
-        "custom/side-apps"
-        "custom/side-files"
-        "custom/side-browser"
-        "custom/side-code"
-        "custom/side-media"
-        "custom/side-settings"
-      ];
-      "custom/side-apps" = { format = "󰀻"; "on-click" = "wayfire-studio-launcher"; tooltip = false; };
-      "custom/side-files" = { format = "󰉋"; "on-click" = "thunar"; tooltip = false; };
-      "custom/side-browser" = { format = "󰖟"; "on-click" = "firefox"; tooltip = false; };
-      "custom/side-code" = { format = "󰨞"; "on-click" = "foot"; tooltip = false; };
-      "custom/side-media" = { format = "󰝚"; "on-click" = "pavucontrol"; tooltip = false; };
-      "custom/side-settings" = { format = "󰒓"; "on-click" = "wayfire-studio-profile"; tooltip = false; };
-    }
-    {
       name = "dock";
       output = [ "DP-2" "DP-3" ];
       layer = "top";
@@ -263,6 +241,7 @@ let
         "custom/files"
         "custom/terminal"
         "wlr/taskbar"
+        "tray"
         "custom/background"
         "custom/add"
       ];
@@ -300,9 +279,8 @@ let
             if name == "compact" then
               [
                 (builtins.head bars)
-                (builtins.elemAt bars 1)
                 (
-                  (builtins.elemAt bars 2)
+                  (builtins.elemAt bars 1)
                   // {
                     height = 38;
                     width = 360;
