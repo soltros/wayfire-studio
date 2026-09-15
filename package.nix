@@ -124,7 +124,7 @@ let
   bars = [
     {
       name = "panel";
-      output = [ "DP-3" ];
+      output = [ "DP-2" "DP-3" ];
       layer = "top";
       position = "top";
       height = 34;
@@ -143,6 +143,7 @@ let
         "network"
         "pulseaudio"
         "custom/media"
+        "tray"
         "battery"
         "custom/lock"
       ];
@@ -227,43 +228,10 @@ let
         "on-click" = "swaylock -c 171c2b";
         tooltip = false;
       };
-    }
-    {
-      name = "dock";
-      output = [ "DP-2" "DP-3" ];
-      layer = "top";
-      position = "bottom";
-      "margin-bottom" = 12;
-      height = 54;
-      width = 460;
-      "modules-center" = [
-        "custom/launcher"
-        "custom/files"
-        "custom/terminal"
-        "wlr/taskbar"
-        "tray"
-        "custom/background"
-        "custom/add"
-      ];
-      "custom/launcher" = {
-        format = "";
-        "on-click" = "wayfire-studio-launcher";
-        tooltip = false;
-      };
-      "custom/files" = {
-        format = "";
-        "on-click" = "thunar";
-        tooltip = false;
-      };
-      "custom/terminal" = {
-        format = "";
-        "on-click" = "foot";
-        tooltip = false;
-      };
       "wlr/taskbar" = {
         "icon-theme" = "Papirus-Dark";
         format = "{icon}";
-        "icon-size" = 28;
+        "icon-size" = 24;
         "on-click" = "activate";
         "on-click-middle" = "close";
         "tooltip-format" = "{title}";
@@ -278,15 +246,7 @@ let
           builtins.toJSON (
             if name == "compact" then
               [
-                (builtins.head bars)
-                (
-                  (builtins.elemAt bars 1)
-                  // {
-                    height = 38;
-                    width = 360;
-                    "margin-bottom" = 4;
-                  }
-                )
+                ((builtins.head bars) // { height = 38; })
               ]
             else
               bars

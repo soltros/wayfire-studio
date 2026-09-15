@@ -76,10 +76,9 @@ def render(base):
         return key
 
     for bar in config:
-        if bar.get("name") != "dock":
+        if bar.get("name") != "panel":
             continue
-            continue
-        modules = [image(bar, "applications", Gio.ThemedIcon.new("view-app-grid"), "wayfire-studio-launcher")]
+        modules = list(bar.get("modules-center", []))
         for index, desktop_id in enumerate(pins()):
             app = Gio.DesktopAppInfo.new(desktop_id)
             if app:
