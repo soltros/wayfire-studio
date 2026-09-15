@@ -121,7 +121,6 @@ let
       layer = "top";
       position = "bottom";
       height = 34;
-      margin = "0";
       "modules-left" = [
         "custom/brand"
         "custom/applications"
