@@ -124,6 +124,7 @@ let
   bars = [
     {
       name = "panel";
+      output = [ "DP-3" ];
       layer = "top";
       position = "bottom";
       height = 34;
@@ -230,6 +231,7 @@ let
     }
     {
       name = "sidebar";
+      output = [ "DP-3" ];
       layer = "top";
       position = "left";
       width = 64;
@@ -250,6 +252,7 @@ let
     }
     {
       name = "dock";
+      output = [ "DP-2" "DP-3" ];
       layer = "top";
       position = "bottom";
       "margin-bottom" = 12;

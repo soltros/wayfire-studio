@@ -67,6 +67,8 @@ media, tray, battery, clock, workspace, and mode controls. Media can be toggled
 with left click and skipped with middle/right click. Papirus Dark is the icon theme for the dock,
 taskbar, popup, application picker, and GTK applications. Starting the session sets
 the user's GNOME interface icon-theme preference to `Papirus-Dark`.
+The main status frame and navigation rail are scoped to the primary output; the
+dock appears on both outputs and shows windows for each display.
 If a bar fails to start, session diagnostics are written to
 `$XDG_RUNTIME_DIR/wayfire-studio/shell.log`.
 The session starts one Waybar process for all bars on all connected monitors.
