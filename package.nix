@@ -128,7 +128,6 @@ let
       position = "bottom";
       height = 34;
       "modules-left" = [
-        "custom/brand"
         "custom/applications"
         "custom/files"
         "custom/profile"
@@ -157,15 +156,12 @@ let
         "on-click" = "thunar";
         tooltip = false;
       };
-      "custom/brand" = {
-        format = "NixOS · Soltros";
-        tooltip = false;
-      };
       "custom/profile" = {
         exec = "wayfire-studio-profile status";
+        format = "󰒓";
         interval = 2;
         "on-click" = "wayfire-studio-profile";
-        tooltip = false;
+        tooltip = true;
       };
       "custom/workspaces" = {
         format = "󰍹  {}";
@@ -181,18 +177,18 @@ let
         tooltip = false;
       };
       clock = {
-        format = "{:%a, %b %d  ·  %H:%M}";
+        format = "{:%a, %b %d  ·  %-I:%M %p}";
         "tooltip-format" = "<tt>{calendar}</tt>";
       };
       network = {
-        "format-wifi" = "Wi-Fi · {essid}";
-        "format-ethernet" = "Wired";
-        "format-disconnected" = "Offline";
+        "format-wifi" = "󰖩 {essid}";
+        "format-ethernet" = "󰈀";
+        "format-disconnected" = "󰖪";
         "on-click" = "nm-connection-editor";
       };
       pulseaudio = {
-        format = "Audio · {volume}%";
-        "format-muted" = "Muted";
+        format = "󰕾 {volume}%";
+        "format-muted" = "󰖁";
         "on-click" = "pavucontrol";
       };
       "custom/media" = {
@@ -206,28 +202,28 @@ let
         tooltip = false;
       };
       cpu = {
-        format = "CPU {usage}%";
-        "format-alt" = "CPU {usage}% · {load}";
+        format = "󰍛 {usage}%";
+        "format-alt" = "󰍛 {load}";
         interval = 5;
       };
       memory = {
-        format = "RAM {percentage}%";
+        format = "󰘚 {percentage}%";
         interval = 5;
       };
       "disk#root" = {
-        format = "Disk {percentage_used}%";
+        format = "󰋊 {percentage_used}%";
         path = "/";
         interval = 30;
       };
       battery = {
-        format = "{capacity}%";
+        format = "󰁹 {capacity}%";
         states = {
           warning = 25;
           critical = 10;
         };
       };
       "custom/lock" = {
-        format = "Lock";
+        format = "󰌾";
         "on-click" = "swaylock -c 171c2b";
         tooltip = false;
       };
