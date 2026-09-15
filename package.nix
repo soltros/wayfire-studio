@@ -131,8 +131,12 @@ let
       ];
       "modules-center" = [ "clock" ];
       "modules-right" = [
+        "cpu"
+        "memory"
+        "disk#root"
         "network"
         "pulseaudio"
+        "tray"
         "battery"
         "custom/lock"
       ];
@@ -178,6 +182,20 @@ let
         format = "Audio · {volume}%";
         "format-muted" = "Muted";
         "on-click" = "pavucontrol";
+      };
+      cpu = {
+        format = "CPU {usage}%";
+        "format-alt" = "CPU {usage}% · {load}";
+        interval = 5;
+      };
+      memory = {
+        format = "RAM {percentage}%";
+        interval = 5;
+      };
+      "disk#root" = {
+        format = "Disk {percentage_used}%";
+        path = "/";
+        interval = 30;
       };
       battery = {
         format = "{capacity}%";
