@@ -62,7 +62,8 @@ the popup. It does not enumerate arbitrary background processes. The same contro
 is available on the panel when using Focus mode.
 
 The bottom status bar is always opaque. It exposes CPU, RAM, disk, network, audio,
-tray, battery, clock, workspace, and mode controls. Papirus Dark is the icon theme for the dock,
+media, tray, battery, clock, workspace, and mode controls. Media can be toggled
+with left click and skipped with middle/right click. Papirus Dark is the icon theme for the dock,
 taskbar, popup, application picker, and GTK applications. Starting the session sets
 the user's GNOME interface icon-theme preference to `Papirus-Dark`.
 

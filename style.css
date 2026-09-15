@@ -18,6 +18,7 @@ window#waybar.dock { background: rgba(4, 15, 28, 0.96); border-radius: 14px; bor
 #custom-workspaces { color: #69c7ff; letter-spacing: 1px; }
 #custom-command { color: #69c7ff; font-size: 17px; }
 #cpu, #memory, #disk { color: #9bdcff; font-size: 11px; }
+#custom-media { color: #d7efff; font-size: 11px; min-width: 120px; }
 #custom-launcher, #custom-files, #custom-terminal { font-size: 23px; padding: 0 16px; color: #8ed5ff; }
 #taskbar button { padding: 7px 10px; margin: 4px 2px; border-radius: 12px; color: #e6eaf2; }
 #taskbar button.active { background: #0d4e80; }

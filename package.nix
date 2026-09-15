@@ -136,6 +136,7 @@ let
         "disk#root"
         "network"
         "pulseaudio"
+        "custom/media"
         "tray"
         "battery"
         "custom/lock"
@@ -182,6 +183,16 @@ let
         format = "Audio · {volume}%";
         "format-muted" = "Muted";
         "on-click" = "pavucontrol";
+      };
+      "custom/media" = {
+        exec = "wayfire-studio-media";
+        interval = 3;
+        format = "{}";
+        "on-click" = "wayfire-studio-media toggle";
+        "on-click-middle" = "wayfire-studio-media next";
+        "on-click-right" = "wayfire-studio-media prev";
+        "max-length" = 34;
+        tooltip = false;
       };
       cpu = {
         format = "CPU {usage}%";
@@ -326,6 +337,7 @@ let
     brightnessctl
     networkmanagerapplet
     pavucontrol
+    playerctl
     dbus
     systemd
     libnotify
@@ -367,6 +379,7 @@ pkgs.symlinkJoin {
     install -Dm755 ${./scripts/launcher.sh} "$out/bin/wayfire-studio-launcher"
     install -Dm755 ${./scripts/workspaces.sh} "$out/bin/wayfire-studio-workspaces"
     install -Dm755 ${./scripts/command-center.sh} "$out/bin/wayfire-studio-command-center"
+    install -Dm755 ${./scripts/media.sh} "$out/bin/wayfire-studio-media"
     substituteInPlace "$out/bin/wayfire-studio-launcher" --replace-fail '@style@' '${./launcher.css}'
     substituteInPlace "$out/bin/wayfire-studio-profile" \
       --replace-fail '@profiles@' '${configs}' --replace-fail '@bars@' '${barProfiles}' --replace-fail '@default@' '${defaultProfile}'
