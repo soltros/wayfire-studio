@@ -152,7 +152,7 @@ let
         tooltip = false;
       };
       "custom/brand" = {
-        format = "󰣇  Soltros";
+        format = "NixOS · Soltros";
         tooltip = false;
       };
       "custom/profile" = {
