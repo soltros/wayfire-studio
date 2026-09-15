@@ -43,6 +43,10 @@ in
   };
   config = lib.mkIf cfg.enable {
     programs.wayfire.enable = true;
+    # LightDM provides a graphical login screen and exposes the generated
+    # Wayfire Studio Wayland session alongside other installed sessions.
+    services.xserver.enable = true;
+    services.xserver.displayManager.lightdm.enable = true;
     systemd.user.targets.wayfire-studio-session = {
       description = "Wayfire Studio graphical session";
       bindsTo = [ "graphical-session.target" ];
