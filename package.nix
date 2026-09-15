@@ -130,6 +130,7 @@ let
       "modules-left" = [
         "custom/brand"
         "custom/applications"
+        "custom/files"
         "custom/profile"
         "custom/workspaces"
         "custom/command"
@@ -149,6 +150,11 @@ let
       "custom/applications" = {
         format = "󰣪";
         "on-click" = "wayfire-studio-launcher";
+        tooltip = false;
+      };
+      "custom/files" = {
+        format = "󰉋";
+        "on-click" = "thunar";
         tooltip = false;
       };
       "custom/brand" = {

@@ -29,7 +29,9 @@ def pins():
     defaults = []
     available = apps()
     for wanted in ("foot", "thunar", "firefox"):
-        match = next((app for app in available if wanted in app.get_id().lower()), None)
+        candidates = [app for app in available if wanted in app.get_id().lower()]
+        match = next((app for app in candidates if app.get_id().lower() in (f"{wanted}.desktop", f"org.xfce.{wanted}.desktop")), None)
+        match = match or next((app for app in candidates if "bulk-rename" not in app.get_id().lower()), None)
         if match:
             defaults.append(match.get_id())
     return defaults

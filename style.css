@@ -5,10 +5,11 @@
   min-height: 0;
 }
 window#waybar { background: #071321; color: #e8f3ff; }
-window#waybar.panel { border-top: 1px solid #1b9cff; }
-window#waybar.sidebar { background: rgba(4, 15, 28, 0.96); border-right: 1px solid #174768; }
+window#waybar.panel { border-top: none; }
+window#waybar.sidebar { background: rgba(4, 15, 28, 0.96); border-right: none; }
 window#waybar.dock { background: rgba(4, 15, 28, 0.96); border-radius: 14px; border: 1px solid #1b9cff; }
 #custom-brand { color: #69c7ff; font-weight: 600; padding: 0 16px; }
+#custom-files { color: #8ed5ff; font-size: 18px; padding: 0 12px; }
 #custom-side-apps, #custom-side-files, #custom-side-browser, #custom-side-code, #custom-side-media, #custom-side-settings { color: #8ed5ff; font-size: 22px; padding: 14px 20px; }
 #custom-side-apps:hover, #custom-side-files:hover, #custom-side-browser:hover, #custom-side-code:hover, #custom-side-media:hover, #custom-side-settings:hover { background: #0d3151; color: #ffffff; }
 #custom-applications, #custom-profile, #custom-workspaces, #custom-command, #clock, #tray, #network, #pulseaudio, #battery, #cpu, #memory, #disk, #custom-lock {

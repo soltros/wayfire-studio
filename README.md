@@ -61,7 +61,8 @@ button for app-specific actions such as Quit. Click away or press Escape to hide
 the popup. It does not enumerate arbitrary background processes. The same control
 is available on the panel when using Focus mode.
 
-The bottom status bar is always opaque. It exposes CPU, RAM, disk, network, audio,
+The bottom status bar is always opaque. It exposes application launch, file manager,
+CPU, RAM, disk, network, audio,
 media, tray, battery, clock, workspace, and mode controls. Media can be toggled
 with left click and skipped with middle/right click. Papirus Dark is the icon theme for the dock,
 taskbar, popup, application picker, and GTK applications. Starting the session sets
